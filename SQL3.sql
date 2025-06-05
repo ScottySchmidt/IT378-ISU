@@ -1,14 +1,14 @@
 Illinois State University IT_378
 Scott Schmidt and Quinton Soipan 
 SQL Assignment 3 
-
---------Question #1 
-
+  
+----------------------------------------
+--------Question #1---------------------
 SET ECHO ON; 
 SELECT vendor_name, vendor_contact_last_name, vendor_contact_first_name 
 FROM vendors; 
 
---------------------------OUTPUT BELOW -------------------------------- 
+---OUTPUT BELOW -----
 
 SQL> SELECT vendor_name, vendor_contact_last_name, vendor_contact_first_name 
 
@@ -41,7 +41,6 @@ Robbins Mobile Lock And Key                       Leigh                         
 Bill Marvin Electric Inc                          Hostlery                                          Kaitlin                                           
 
  
-
 VENDOR_NAME                                        VENDOR_CONTACT_LAST_NAME                           VENDOR_CONTACT_FIRST_NAME                          
 
 -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- 
@@ -179,8 +178,6 @@ The Drawing Board                                 Mckayla                       
 Ascom Hasler Mailing Systems                      Lewis                                             Darnell                                           
 
 Bill Jones                                        Deasia                                            Tristin                                           
-
- 
 
 VENDOR_NAME                                        VENDOR_CONTACT_LAST_NAME                           VENDOR_CONTACT_FIRST_NAME                          
 
@@ -325,10 +322,12 @@ United Parcel Service                             Beauregard                    
 VENDOR_NAME                                        VENDOR_CONTACT_LAST_NAME                           VENDOR_CONTACT_FIRST_NAME                          
 
 -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- 
-
 Federal Express Corporation                       Bucket                                            Charlie                                           
 122 rows selected.  
 
+
+  
+--------------------------------------------
 ---------Question #2 -----------------------
 SET ECHO ON; 
 
@@ -1005,13 +1004,12 @@ VENDOR_NAME                                        VENDOR_CONTACT_LAST_NAME     
 -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- 
 
 Ingram                                            Yobani                                            Trey                                              
-
- 
-
 122 rows selected. 
 
-Question #3 
 
+  
+---------------------------------------------
+-------Question #3 -------------------------
 SET ECHO ON; 
 
 SELECT vendor_contact_last_name || ', ' || vendor_contact_first_name "full_name" 
@@ -1163,9 +1161,8 @@ Evan, Emily
  
 
  
-
-----------Question #4 ------------------------
-
+--------------------------------------------------
+--------------Question #4 ------------------------
 SET ECHO ON; 
 SELECT invoice_due_date AS "Due Date", invoice_total AS "Invoice Total", invoice_total /10 AS "10%", invoice_total * 1.1 AS "Plus 10%" 
 FROM invoices 
@@ -1222,8 +1219,8 @@ Due Date  Invoice Total        10%   Plus 10%
  
 
  
-
---Question #5 ----------------------------------
+---------------------------------------------------
+--------------Question #5 -------------------------
 SET ECHO ON; 
 SELECT Invoice_Number "Number", Invoice_Total "Total", Payment_Total + Credit_Total "Credits", Invoice_Total - Payment_Total + Credit_Total "Balance Due" 
 FROM INVOICES 
@@ -1268,7 +1265,6 @@ P-0608                                              20551.18       1200    21751
 
 I77271-O01                                               662          0         662 
 
- 
 
 Number                                                  Total    Credits Balance Due 
 
@@ -1281,8 +1277,8 @@ Number                                                  Total    Credits Balance
 
 
   
----------------------------------------------------
---Question #6 
+------------------------------------------
+----------Question #6---------------------
 SELECT invoice_due_date AS "Due Date", 
 invoice_total AS "Invoice Total", 
 invoice_total / 10 AS "10%", 
@@ -1314,24 +1310,24 @@ ORDER BY invoice_due_date DESC
 --Sorts the output so that invoices with later due dates appear first. 
 
  
-
---Question #7  
+------------------------------------------------------------
+------------Question #7-----------------------------
 SELECT invoice_total - payment_total - credit_total AS balance_due, 
        payment_date 
 FROM invoices 
 WHERE payment_date IS NULL  
-  AND invoice_total - payment_total - credit_total = 0; 
+ AND invoice_total - payment_total - credit_total = 0; 
 
 --This query finds invoices where the customer owes nothing (the balance is zero), but the payment date is missing. Here is a line-by-line explanation: 
 
 invoice_total - payment_total - credit_total AS balance_due 
-Calculates how much is still owed and names it balance_due. 
+----Calculates how much is still owed and names it balance_due. 
 payment_date 
-Selects the date the payment was recorded. 
+---Selects the date the payment was recorded. 
 FROM invoices 
-Gets data from the invoices table. 
+---Gets data from the invoices table. 
 WHERE payment_date IS NULL 
-Filters invoices with no payment date recorded (i.e., not officially marked as paid). 
+---Filters invoices with no payment date recorded (i.e., not officially marked as paid). 
 AND invoice_total - payment_total - credit_total = 0 
-Filters invoices where the calculated balance due is zero – meaning nothing is owed, even though there’s no payment date. 
+---Filters invoices where the calculated balance due is zero – meaning nothing is owed, even though there’s no payment date. 
  
