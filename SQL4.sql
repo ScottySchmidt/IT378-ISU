@@ -563,6 +563,17 @@ FROM (
 WHERE rnk = 1;
 -- Window functions often more readable with better performance. 
 
+SET ECHO ON;
+SELECT SHIP, TONS, NAT
+FROM SHIPS s
+WHERE (TONS, NAT) IN (
+    SELECT MAX(TONS), NAT
+    FROM SHIPS
+    GROUP BY NAT
+    
+)ORDER BY tons DESC;
+-- Above is using a subquery that gets same output as the window function above.
+
 SQL> SET ECHO ON;
 SQL> SELECT SHIP, TONS, NAT
   2  FROM (
