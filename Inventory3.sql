@@ -1,4 +1,7 @@
+Scott Schmidt and Quin Soipas
+IT378 Advanced Database, Illinois State University
 Part 3 Querying the Data (10 Points)
+-----------------------------------------------------------
 13.Query the proper systems/dictionary table to show all constraints on each table youcreated. And only the tables you created for this assignment.
 
 SET ECHO ON;
